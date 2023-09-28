@@ -2,7 +2,7 @@ import React from 'react';
 
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
-import Card from './Card';
+import Card from '../UI/Card';
 
 const ExpenseItem = (props) => {
 	return (
