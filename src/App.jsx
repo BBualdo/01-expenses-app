@@ -26,6 +26,10 @@ function App() {
 		},
 	];
 
+	const addExpenseHandler = (expense) => {
+		console.log(expense);
+	};
+
 	const expenseElement = expenses.map((expense) => {
 		return (
 			<Expenses
@@ -38,7 +42,7 @@ function App() {
 
 	return (
 		<div>
-			<NewExpense />
+			<NewExpense onAddExpense={addExpenseHandler} />
 			{expenseElement}
 		</div>
 	);
