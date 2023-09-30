@@ -9,6 +9,8 @@ const ExpenseForm = (props) => {
 		enteredDate: '',
 	});
 
+	const [showForm, setShowForm] = useState(false);
+
 	const inputChangeHandler = (identifier, value) => {
 		if (identifier === 'title') {
 			setUserInput((prevState) => {
@@ -49,7 +51,22 @@ const ExpenseForm = (props) => {
 			enteredAmount: '',
 			enteredDate: '',
 		});
+		setShowForm(false);
 	};
+
+	const showFormHandler = () => {
+		setShowForm(true);
+	};
+
+	const addExpenseDiv = (
+		<div className='new-expense__actions new-expense__before'>
+			<button onClick={showFormHandler}>Add New Expense</button>
+		</div>
+	);
+
+	if (!showForm) {
+		return addExpenseDiv;
+	}
 
 	return (
 		<form onSubmit={submitHandler}>
@@ -88,6 +105,9 @@ const ExpenseForm = (props) => {
 				</div>
 			</div>
 			<div className='new-expense__actions'>
+				<button onClick={() => setShowForm(false)} type='button'>
+					Cancel
+				</button>
 				<button type='submit'>Add Expense</button>
 			</div>
 		</form>
