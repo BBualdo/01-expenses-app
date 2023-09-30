@@ -13,14 +13,16 @@ const Expenses = (props) => {
 	};
 
 	const expenseElement = props.items.map((expense) => {
-		return (
-			<ExpenseItem
-				key={expense.id}
-				title={expense.title}
-				amount={expense.amount}
-				date={expense.date}
-			/>
-		);
+		if (expense.date.getFullYear().toString() === filteredYear) {
+			return (
+				<ExpenseItem
+					key={expense.id}
+					title={expense.title}
+					amount={expense.amount}
+					date={expense.date}
+				/>
+			);
+		}
 	});
 
 	return (
