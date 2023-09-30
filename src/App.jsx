@@ -30,20 +30,10 @@ function App() {
 		console.log(expense);
 	};
 
-	const expenseElement = expenses.map((expense) => {
-		return (
-			<Expenses
-				title={expense.title}
-				amount={expense.amount}
-				date={expense.date}
-			/>
-		);
-	});
-
 	return (
 		<div>
 			<NewExpense onAddExpense={addExpenseHandler} />
-			{expenseElement}
+			<Expenses items={expenses} />
 		</div>
 	);
 }
